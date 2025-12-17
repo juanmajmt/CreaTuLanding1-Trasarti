@@ -1,42 +1,29 @@
+import { NavLink, Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
-function NavBar() {
+const NavBar = () => {
   return (
     <header className="navbar">
-      {/* Logo + subtítulo */}
       <div className="navbar-left">
-        <div className="navbar-logo">
-          <span className="navbar-logo-main">RepuesTOP</span>
+        <Link to="/" className="navbar-logo">
+          <span className="navbar-logo-main">REPUeSTOP</span>
           <span className="navbar-logo-dot">●</span>
-        </div>
-        <span className="navbar-logo-sub">
-          Repuestos · Marketplace · Comparador de precios
-        </span>
+        </Link>
+        <span className="navbar-logo-sub">REPUESTOS · MARKETPLACE · COMPARADOR DE PRECIOS</span>
       </div>
 
-      {/* Links principales */}
       <nav className="navbar-links">
-        <a href="#inicio">Inicio</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#buscador">Buscador de precios</a>
-        <a href="#ayuda">Ayuda</a>
+        <NavLink to="/" end>Inicio</NavLink>
+        <NavLink to="/marketplace">Marketplace</NavLink>
+        <NavLink to="/buscador-precios">Buscador de precios</NavLink>
+        <NavLink to="/ayuda">Ayuda</NavLink>
       </nav>
 
-      {/* Buscador y carrito */}
       <div className="navbar-right">
-        <div className="navbar-search">
-          <span className="navbar-search-icon">🔍</span>
-          <input
-            type="text"
-            placeholder="Buscar repuesto, marca, modelo..."
-            aria-label="Buscar repuestos"
-          />
-        </div>
-
         <CartWidget />
       </div>
     </header>
   );
-}
+};
 
 export default NavBar;
